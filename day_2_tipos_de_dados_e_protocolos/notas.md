@@ -180,9 +180,94 @@ a == b
 True
 ```
 
+### String
 
+String sao formadas por cadeias de bytes.
+O tipo `str` possui a maioria das carecteristicas que já abordamos nos outros tipos de dados e uma grande quantidade de protocolos implementados, vamos ver alguns.
 
+```
+# Sliceable (pode ser fatiado)
+>>> "Bruno"[1]
+'r'
+# que internamente invoca o método `__getitem__`
+>>> "Bruno".__getitem__(1)
+'r'
 
+# Addible (pode ser adicionado a outro texto)
+# Essa operação se chama "Concatenação"
+>>> nome = Bruno" 
+>>> sobrenome = "Rocha"
+>>> nome + " " + sobrenome
+'Bruno Rocha'
+# que internamente invoca o método `__add__`
+>>> nome.__add__(" ".__add__(sobrenome))
+'Bruno Rocha'
+
+# Multipliable (que pode ser multiplicado)
+>>> "Bruno" * 5
+'BrunoBrunoBrunoBrunoBruno'
+
+# Iterable (que pode ser iterado/percorrido)
+>>> for letra in "Bruno":
+...     print("-->" + letra.upper())
+-->B
+-->R
+-->U
+-->N
+-->O
+# Internamente o statement `for` invoca o método `__iter__`
+>>> iterador = "Bruno".__iter__()
+>>> next(iterador)
+'B'
+>>> next(iterador)
+'r'
+```
+
+Além disso tudo, o tipo `str` também oferece muitos métodos públicos, que nós podemos usar explicitamente e que são muito úteis.
+
+```
+>>> "Bruno".upper()
+'BRUNO'
+
+>>> "BRUNO".lower()
+'bruno'
+
+>>> "bruno rocha".capitalize()
+'Bruno rocha'
+
+>>> "bruno rocha".title()
+'Bruno Rocha'
+
+>>> "bruno rocha".split(" ")
+['bruno', 'rocha']
+
+>>> "bruno".startswith("b")
+True
+
+>>> "bruno".endswith("b")
+False
+
+>>> "bruno rocha".count("o")
+2
+
+>>> "bruno rocha".index("c")
+8
+>>> "bruno rocha"[8]
+'c'
+```
+
+E também algumas coisas que podemos fazer com qualquer objeto sequencial do Python:
+
+```
+>>> len("Bruno Rocha")
+11
+
+>>> sorted("Bruno Rocha")
+[' ', 'B', 'R', 'a', 'c', 'h', 'n', 'o', 'o', 'r', 'u']
+
+>>> list(reversed("Bruno Rocha"))
+['a', 'h', 'c', 'o', 'R', ' ', 'o', 'n', 'u', 'r', 'B']
+```
 
 
 
