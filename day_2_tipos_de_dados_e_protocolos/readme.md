@@ -4,7 +4,7 @@ Um objeto eh um endereco de memoria, um tipo e um valor.
 
 Ao atribuirmos um valor para uma variavel, o Python realiza uma inferencia de tipos onde o tipo do objeto eh resolvido.
 #
-### Porque usamos tipos de dados?
+## Porque usamos tipos de dados?
 
 Para não precisar manipular os dados manualmente, por exemplo, não precisamos nos preocupar com o fato de que cada letra de um texto é armazenada como um número binário, usamos os tipos de dados definidos pelas classes para utilizar abstrações que nos entreguem diretamente a letra "B" que queremos.
 
@@ -12,11 +12,11 @@ Também não precisamos nos preocupar com a posição da memória, para nós tan
 
 Os tipos de dados estão divididos em 2 categorias, os primários e os compostos
 #
-### Primários
+## Primários
 
 Os tipos primários também chamados de tipos "escalares" (scalar types) são utilizados para armazenar uma única unidade de informação como por exemplo um número ou um texto como vimos anteriormente.
 #
-### Inteiros
+## Inteiros
 
 O tipo usado para armazenar os números inteiros em Python é representado pela classe `int`, em Python nós não precisamos declarar qual o tipo de dado a ser usado pois o Python faz a inferência de tipos dinâmicamente, o interpretador primeiro verifica como o valor se parece e então decide por conta própria qual a classe a ser utilizada, exemplos de uso de `int`.
 ```
@@ -111,7 +111,7 @@ Verificando quais comportamentos estão no protocolo de um tipo de dado.
  'to_bytes']
 ```
 #
-### Float
+## Float
 
 Floats são parecidos com inteiros mas além de armazenar a parte inteira do número eles também podem armazenar o ponto flutuante, a fração, e são usados para armazenar resultados que não podem ser armazenados em inteiros, por exemplo.
 
@@ -135,7 +135,7 @@ longitude = 144.9659498
 pontos = 355.8
 ```
 #
-### Booleanos
+## Booleanos
 
 O tipo booleano é representado pela classe `bool` e ele pode armazenar apenas 2 estados `Verdadeiro` e `Falso`, em teoria poderiamos aplicar aqui a lógica binária e em nosso programa dizer que `0` é falso enquanto `1` é verdadeiro, e de fato é isso que Python faz por debaixo dos panos, porém para ficar com uma sintaxe mais bonita termos o tipo `bool` e suas variações `True` e `False`.
 
@@ -151,7 +151,7 @@ continuar = False
 active = True
 ```
 #
-### NoneType
+## NoneType
 
 Em alguns casos precisamos inicializar uma variável porém ainda não temos o valor para armazenar nela, nesse caso usamos o objeto `None`.
 Este é um tipo especial que serve para quando não possuimos um valor mas precisamos da variável definida pois em algum momento no decorrer do programa iremos refazer a atribuição daquela variável.
@@ -180,7 +180,7 @@ a == b
 True
 ```
 #
-### String
+## String
 
 String sao formadas por cadeias de bytes.
 O tipo `str` possui a maioria das carecteristicas que já abordamos nos outros tipos de dados e uma grande quantidade de protocolos implementados, vamos ver alguns.
@@ -270,7 +270,7 @@ E também algumas coisas que podemos fazer com qualquer objeto sequencial do Pyt
 ```
 
 #
-### Interpolação e Formatação de textos
+## Interpolação e Formatação de textos
 
 Uma das coisas mais úteis de se fazer com texto é a interpolação de variáveis dentro do texto e a formatação de acordo com template pre-definido.
 
@@ -378,11 +378,11 @@ Uma útilidade interessante das f-strings é usar para fazer debugging.
 nome='Bruno'
 ```
 #
-### Tipos compostos
+## Tipos compostos
 
 Com os tipos `primários` temos a limitação de representar apenas uma única informação em cada objeto, porém existem casos em que desejamos compor um objeto único que contém mais de uma informação e para isso usamos os tipos compostos.
 
-### Tuplas
+## Tuplas
 
 As tuplas são o tipo composto mais simples de todos e bastante comum de serem usadam em Python, da mesma forma que anteriormente vimos que a string "ABC" é uma sequência de carecteres, com as tuplas conseguimos fazer uma sequência de valores que podem ser de qualquer tipo.
 
@@ -420,7 +420,7 @@ mover_z_para_coordenada(coord[2])
 
 Repare que podemos acessar `coord[0]` e assim por diante usando `[numero]` e este número se refere a posição do valor que queremos dentro da tupla.
 
-### Desempacotamento
+## Desempacotamento
 
 A caracteristica mais interessante das tuplas se chama **unpacking** ou desempacotamento em português. (algumas linguagens chamam isso de **spread**, **espalhamento**, **explode**)
 
@@ -435,11 +435,11 @@ x, y, z = coord
 
 No desempacotamento o Python automaticamente vai pegar cada um dos elementos da tupla e usar para definir as variaveis que separarmos por `,`.
 
-### Imutabilidade
+## Imutabilidade
 
 Outra caracteristica importante e que talvez seja decisiva na hora de escolher usar tuplas é o fato de que elas são imutáveis, uma vez criada a tupla, não é possivel alterar, não dá para mudar os valores ou adicionar novos. (este tópico contém algumas excessões que veremos na nossa aula sobre escopos)
 
-### Algumas coisas que podemos fazer com as tuplas
+## Algumas coisas que podemos fazer com as tuplas
 ```
 # Atribuir sem parenteses
 coord = 140, 200, 9
@@ -468,7 +468,7 @@ coord[0]
 coord[1:]
 (200, 9)
 ```
-### Listas
+## Listas
 
 Listas são bastante similares as tuplas e a maioria das operações que podemos fazer com tuplas também podemos fazer com as listas, uma das grandes diferenças está na implementação de protocolos de edição dos elementos, portanto as listas são mutáveis e permitem que incluamos novos itens, permitem a remoção de itens existentes e a reordenação.
 
@@ -551,7 +551,7 @@ Contar elementos:
 1=
 ```
 #
-### Sets
+## Sets
 
 Sets podem ser criados usando as sintaxes:
 ```
@@ -591,7 +591,7 @@ Aplicamos a teoria dos conjuntos usando operadores:
 >>> set(conjunto_a) ^ set(conjunto_b)
 {1, 2, 3, 6, 7, 8}
 ```
-### Performance
+## Performance
 
 Fazer buscar em sequencias é uma operação bastante pesada, imagina que no seu twitter você tem 5000 seguidores e você deseja buscar um deles ou fazer essas operações de comparação como fizemos com os conjuntos.
 
@@ -610,7 +610,7 @@ Por quê isso importa? Sets são mais rápidos!
 
 operações como `if "alfredo" in usuarios:` se `usuarios` for um set irá ser bem mais rápido do que caso `usuarios` seja uma lista ou tupla.
 
-### Mutabilidade
+## Mutabilidade
 Você pode criar um conjunto vazio e ir adicionando elementos e também pode remover elementos, eles são mutáveis
 ```
 >>> a = set([1,2,3])
@@ -620,7 +620,7 @@ Você pode criar um conjunto vazio e ir adicionando elementos e também pode rem
 {2, 3, 4}
 ```
 
-### Deduplicação
+## Deduplicação
 Esta é uma das caracteristica mais interessante dos sets e talvez a sua maior utilidade, sets não permitem itens duplicados, então ao criar um set você elimina as duplicidades.
 ```
 >>> conjunto = set()
@@ -643,7 +643,7 @@ Esta é uma das caracteristica mais interessante dos sets e talvez a sua maior u
 >>> {1, 2, 3, 1, 1, 1, 1, 5, 5, 5, 5}
 {1, 2, 3, 5}
 ```
-### Desvantagens dos sets?
+## Desvantagens dos sets?
 - Não respeitam a ordem de inserção, os elementos são ordenados automaticamente
 - Não permitem subscrição para acesso aos valores
 
@@ -668,6 +668,220 @@ True
 >>> list(conjunto)[0]
 4
 ```
+#
+## Dicionários
+Conhecidos também como HashMaps ou Arrays Associativos os dicionários são um misto entre o `set` e `list` e com certeza a estutura de dados mais importante da linguagem.
+
+Curiosidade: Todos as tipos de dados do Python são implementados usando dicionários, os objetos possuem um método especial `__dict__`, experimente no terminal imprimir `int.__dict__`, até mesmo a resolução de nomes do Python é feita usando um dicionário `__builtins__.__dict__` quando digitamos `print` o Python vai ali naquele dicionário verificar se existe uma função chamada `print` lá dentro.
+
+Vamos entender para que servem os dicionários com este exemplo usando tipos primários.
+```
+produto_nome = "Caneta"
+produto_cor1 = "azul"
+produto_cor2 = "branco"
+produto_preco = 3.23
+produto_dimensao_altura = 12.1
+produto_dimensao_largura = 0.8
+produto_em_estoque = True
+produto_codigo = 45678
+produto_codebar = None
+```
+Acima estamos representando um único produto em um programa de vendas, é uma única caneta porém precisamos de 9 objetos de diferentes tipos.
+
+E para resolver este problema que temos os tipos compostos, eles são `containeres`, objetos que podem agrupar mais de um tipo e mais de uma unidade de informação dentro deles.
+
+Dicionários são criados com `{ }` ou através da classe `dict()`, é bom ter cuidado para não os confundir com sets já que sets também usam `{ }` e a diferença principal é o fato de que no set cada posição armazena apenas um valor e nos dicionários podemos colocar 2 valores em cada posição.
+
+Um desses valores é chamado de chave `key` e o outro valor `val` e são separados por `:`, veja com um dicionário a mesma informação pode ser representada com:
+```
+produto = {
+	"nome": "Caneta",
+	"cor1": "azul",
+	"cor2": "branco",
+	"preco": 3.23,
+	"dimensao_altura": 12.1,
+	"dimensao_largura":  0.8,
+	"em_estoque": True,
+	"codigo": 45678,
+	"codebar": None,
+}
+```
+Agora temos um único objeto `produto` do tipo `dict` e isso torna nosso programa muito melhor organizado, facilita operações e deixa a complexidade menor também pois os dicionários assim como os sets também implementam a Hash Table, ou seja, as operação de acesso são `O(1)` super rápidas.
+
+Assim como as listas os dicionários podem receber subscrições a partir de uma chave, ou seja, usamos `[]` e dentro passamos a key que queremos acessar.
+```
+>>> produto["nome"]
+'Caneta'
+>> produto["codigo"]
+45678
+```
+
+Além disso podemos diminuir a redundancia colocando objetos compostos dentro do dicinário, ao invés de 2 chaves para representar cor podemos criar uma lista de cores e ao invés de 2 chaves para dimensoes podemos ter um subdicionário.
+```
+produto = {
+	"nome": "Caneta",
+	"cores": ["azul", "branco"],
+	"preco": 3.23,
+	"dimensao" {
+        "altura": 12.1,
+	    "largura":  0.8,
+    },
+	"em_estoque: True,
+	"codigo": 45678,
+	"codebar": None,
+}
+```
+
+As chaves de um dicionário podem ser de qualquer tipo de dados que seja compatível com hash table, exemplo:
+```
+d = {
+    10: "Bruno",
+    True: 45,
+    False: None,
+    None: True,
+    (4,5,6): "uma tupla", 
+}
+
+>>> d[(4, 5, 6)]
+'uma tupla'
+```
+Mas não podemos usar tipos unhashable.
+```
+d = {[1, 2, 3]: "uma lista"}
+...
+TypeError: unhashable type: 'list'
+```
+Já os valores podem ser de qualquer tipo sem restrições!
+
+## Sintaxe
+Podemos iniciar um dicionário vazio e depois ir adicionando elementos dentro dele.
+```
+cliente = {}
+# ou
+cliente = dict()
+```
+## CRUD
+E usar as operações de CRUD (Create, Read, Update, Delete)
+- Criar - Adicionar chave+valor
+```
+cliente["nome"] = "Bruno"
+```
+- Ler valor a partir de uma chave
+```
+>>> cliente["nome"]
+'Bruno'
+```
+- Update - Alterar valor a partir de uma chave
+```
+cliente["nome"] = "Bruno Rocha"
+```
+- Delete - Remover um valor e sua chave.
+```
+del cliente["nome"]
+```
+A keyword `del` remove uma variável que foi atribuida e pode ser usada com chaves de dicionários.
+## Buscas
+O dicionário implementa Hash Table, ele também é conhecido como hash map e portanto as buscas em dicionário quando feitas por chave tem acesso constante O(1).
+```
+"nome" in cliente
+True
+```
+`in` invoca o protocolo `Lookupable` através do método `__contains__` e efetua a busca imediata sem necessidade de iterar todo o dicionário para encontrar uma chave, e assim como os `sets` as chaves não podem se repetir.
+
+## Métodos de Lookup
+Obter uma lista de chaves
+```
+cliente = {"nome": "Bruno", "cidade": "Viana"}
+
+cliente.keys()
+dict_keys(["nome", "cidade"])
+```
+Obter uma lista de valores
+```
+cliente.values()
+dict_keys(["Bruno", "Viana"])
+```
+Obter uma lista de tuplas contendo chave e valor
+```
+cliente.items()
+dict_items([("nome", "Bruno"), ("cidade", "Viana")])
+```
+Iterando com `for`
+```
+# apenas chaves
+for key in cliente:
+    print(key)
+
+nome
+cidade
+
+
+# Buscando os valores com subscrição
+for key in cliente:
+    print(key, "-->", cliente[key])
+
+nome-->Bruno
+cidade-->Viana
+
+
+# Com desenpacotamento de tuplas
+for key, value in cliente.items():
+    print(key, "-->", value)
+
+nome-->Bruno
+cidade-->Viana
+```
+## Combinando 2 dicionários
+```
+# informacao original
+cliente = {"nome": "Bruno", "cidade": "Viana"}
+
+# informacao adicional
+extra = {"pais": "Portugal"}
+
+# Informação final
+final = {**cliente, **extra}
+print(final)
+{"nome": "Bruno", "cidade": "Viana", "pais": "Portugal"}
+```
+Ou fazendo `update` in place.
+```
+# informacao original
+cliente = {"nome": "Bruno", "cidade": "Viana"}
+
+# informacao adicional
+extra = {"pais": "Portugal"}
+
+# Cliente atualizado
+cliente.update(extra)
+print(cliente)
+{"nome": "Bruno", "cidade": "Viana", "pais": "Portugal"}
+```
+## Erros
+Caso uma chave não exista no dicionário o Python estoura um erro chamado `KeyError`
+```
+print(cliente["telefone"])
+...
+KeyError 'telefone'
+```
+Para evitar o erro podemos usar o método `get` que busca a chave e caso não exista retorna um valor padrão que inicialmente é `None`.
+```
+print(cliente.get("telefone"))
+'None'
+
+print(cliente.get("telefone", "191"))
+'191'
+```
+#
+
+
+
+
+
+
+
+
+
 
 
 
