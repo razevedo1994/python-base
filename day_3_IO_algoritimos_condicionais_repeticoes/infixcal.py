@@ -28,23 +28,47 @@ __version__ = "0.1.0"
 
 import sys
 
-arguments = {"operation": ["sum", "sub", "mul", "div"]}
+arguments = sys.argv[1:]
 
-if sys.argv[1:]:
-    operation, n1, n2 = sys.argv[1:]
-else:
+# TODO: Exceptions
+if not arguments:
     operation = input("operacao:")
     n1 = input("n1:")
-    n2 = input("n2")
+    n2 = input("n2:")
+    arguments = [operation, n1, n2]
+elif len(arguments) != 3:
+    print("Numero de argumentos invalidos")
+    print("ex: `sum 5 5`")
+    sys.exit(1)
 
-if operation not in arguments["operation"]:
-    print(f"Invalid operation {operation}")
+operation, *nums = arguments
 
+valid_operations = ("sum", "sub", "mul", "div")
+if operation not in valid_operations:
+    print("Operacao invalida")
+    print(valid_operations)
+    sys.exit(1)
+
+validated_nums = []
+for num in nums:
+    # TODO: Repeticao while + exceptions
+    if not num.isdigit():
+        print(f"Numero invalido {num}")
+        sys.exit(1)
+    if "." in num:
+        num = float(num)
+    else:
+        num = int(num)
+    validated_nums.append(num)
+
+n1, n2 = validated_nums
+
+# TODO: Usar dict de funcoes
 if operation == "sum":
-    print(int(n1) + int(n2))
+    print(n1 + n2)
 elif operation == "sub":
-    print(int(n1) - int(n2))
+    print(n1 - n2)
 elif operation == "mul":
-    print(int(n1) * int(n2))
+    print(n1 * n2)
 elif operation == "div":
-    print(int(n1) / int(n2))
+    print(n1 / n2)
