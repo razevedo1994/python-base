@@ -1,0 +1,2 @@
+Minha primeira nota	teste1	Teste bloco de notas1
+Minha segunda nota	teste2	Teste bloco de notas2
