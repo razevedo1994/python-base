@@ -130,3 +130,75 @@ valor = sys.argv[0].lstrip('-')
 # Converter texto para número inteiro
 valor - int(input("Digite um número").strip())
 ```
+## Interagindo com o sistema de arquivos
+Criar uma pasta
+
+```
+>>> import os
+>>> os.mkdir("pasta2")
+```
+Acessar uma pasta
+```
+>>> import os
+>>> os.chdir("pasta2")
+```
+Exibir a pasta atual
+```
+>>> import os
+>>> os.path.abspath(os.curdir)
+/path/pasta2
+```
+Criar um arquivo em branco
+```
+>>> open("arquivo.txt", "w")
+```
+Listar arquivos
+```
+>>> import os
+>>> os.listdir(".")
+['arquivo.txt']
+```
+Escrever em um arquivo
+```
+>>> arquivo =  open("arquivo.txt", "a")
+>>> arquivo.write("Hello\n")
+>>> arquivo.close()
+```
+Ler o conteúdo de um arquivo
+```
+>>> print(open("arquivo.txt", "r").read())
+'Hello\n'
+```
+Context manager
+```
+>>> arquivo =  open("arquivo.txt", "a")
+>>> arquivo.write("Hello\n")
+>>> arquivo.close()
+```
+Como é muito importante manter os descritores de arquivo devidamente encerrados em Python sempre ao abrir um arquivo iremos dar preferência para o uso de um context manager, que é um bloco especial de código que automaticamente executa operações como o .close em arquivos.
+
+A maneira preferida será sempre:
+```
+with open("arquivo.txt", "a") as arquivo:
+    # aqui temos o arquivo aberto para escrever
+    
+    arquivo.write("Hello")
+
+    # aqui o context manager garante o fechamento do arquivo 
+    # sem a necessidade de chamarmos explicitamente o .close()
+```
+## Pathlib
+
+A pathlib foi adicionada no Python 3 e provê as mesmas funcionalidades do os e open com algumas melhorias de sintaxe.
+```
+>>> from pathlib import Path
+# Criar pasta
+>>> Path("pasta3").mkdir(parents=True, exist_ok=True)
+# Criar arquivo na pasta
+>>> Path("pasta3/arquivo.txt").touch()
+# Escrever no arquivo
+>>> Path("pasta3/arquivo.txt").write_text("Bruno")
+# Ler o conteúdo do arquivo
+>>> Path("pasta3/arquivo.txt").read_text()
+'Bruno'
+```
