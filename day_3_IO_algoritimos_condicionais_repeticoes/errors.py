@@ -3,16 +3,14 @@
 import sys
 import os
 
-if os.path.exists("names.txt"):
-    input("...")  # Race condition
+try:
     names = open("names.txt").readlines()
-else:
-    print("[Error] File names.txt not found.")
-    sys.exit(1)
+except FileNotFoundError as e:
+    print(f"{str(e)}")
 
 
-if len(names) >= 3:
-    print(names[3])
-else:
+try:
+    print(names[2])
+except:
     print("[Error] Missing name in the list.")
     sys.exit(1)
