@@ -6,7 +6,7 @@ from logging import handlers
 # TODO: usar funcao
 # TODO: usar lib (loguru)
 log = logging.Logger("logs", logging.DEBUG)
-ch = logging.StreamHandler()
+ch = logging.StreamHandler()  # Console/terminal/stderr
 ch.setLevel(logging.DEBUG)
 fmt = logging.Formatter(
     "%(asctime)s %(name)s %(levelname)s l:%(lineno)d f:%(filename)s: %(message)s"
