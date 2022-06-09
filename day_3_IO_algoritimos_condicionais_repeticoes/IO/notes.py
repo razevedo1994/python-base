@@ -29,26 +29,33 @@ if not arguments:
 if arguments[0] not in cmds:
     print(f"Invalid command {arguments[0]}")
 
-if arguments[0] == "read":
-    try:
-        arg_tag = arguments[1].lower()
-    except IndexError:
-        arg_tag = input("Qual a tag?").strip().lower()
 
-    for line in open(filepath):
-        title, tag, text = line.split("\t")
-        if tag.lower() == arg_tag:
-            print(f"title: {title}")
-            print(f"text: {text}")
-            print("-" * 30)
-            print()
+while True:
 
-if arguments[0] == "new":
-    try:
-        title = arguments[1]
-    except IndexError:
-        title = input("Qual o titulo?").strip().title()
+    if arguments[0] == "read":
+        try:
+            arg_tag = arguments[1].lower()
+        except IndexError:
+            arg_tag = input("Qual a tag?").strip().lower()
 
-    text = [f"{title}", input("tag:").strip(), input("text:\n").strip()]
-    with open(filepath, "a") as file_:
-        file_.write("\t".join(text) + "\n")
+        for line in open(filepath):
+            title, tag, text = line.split("\t")
+            if tag.lower() == arg_tag:
+                print(f"title: {title}")
+                print(f"text: {text}")
+                print("-" * 30)
+                print()
+
+    if arguments[0] == "new":
+        try:
+            title = arguments[1]
+        except IndexError:
+            title = input("Qual o titulo?").strip().title()
+
+        text = [f"{title}", input("tag:").strip(), input("text:\n").strip()]
+        with open(filepath, "a") as file_:
+            file_.write("\t".join(text) + "\n")
+
+    cont = input(f"Deseja repetir a acao {arguments[0]}? [N/y]").strip().lower()
+    if cont != "y":
+        break
