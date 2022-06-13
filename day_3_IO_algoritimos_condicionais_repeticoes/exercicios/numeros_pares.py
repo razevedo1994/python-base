@@ -1,4 +1,4 @@
-#!usr/bin/env python3
+#!/usr/bin/env python3
 """
 Construa um programa que imprime os numeros pares de 1 a 200
 
