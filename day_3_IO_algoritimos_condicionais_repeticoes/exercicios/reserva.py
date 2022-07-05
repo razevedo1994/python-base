@@ -24,3 +24,65 @@ Rodrigo,3,12
 Se outro usuario tentar reservar o mesmo quarto o programa deve exibir uma
 mensagem informando que ja esta reservado.
 """
+import sys
+import logging
+
+
+ocupados = {}
+try:
+    for line in open("reservas.txt"):
+        nome, num_quarto, dias = line.strip().split(",")
+        ocupados[int(num_quarto)] = {
+            "nome": nome,
+            "dias": dias,
+        }
+except FileNotFoundError:
+    logging.error("Arquivo reservas.txt nao existe")
+    sys.exit(1)
+
+
+quartos = {}
+try:
+    for line in open("quartos.txt"):
+        codigo, nome, preco = line.strip().split(",")
+        quartos[int(codigo)] = {
+            "nome": nome,
+            "preco": float(preco),  # TODO: Decimal
+            "disponivel": False if int(codigo) in ocupados else True,
+        }
+except FileNotFoundError:
+    logging.error("Arquivo quartos.txt nao existe")
+    sys.exit(1)
+
+
+print("\nReserva Hotel Pythonico\n")
+print("-" * 30)
+nome = input("\nNome do cliente: ").strip()
+print("Lista de quartos:\n")
+for codigo, dados in quartos.items():
+    nome = dados["nome"]
+    preco = dados["preco"]
+    disponivel = "🚫" if not dados["disponivel"] else "✅"
+    # TODO: Substituir casa decimal por virgula
+    print(f"{codigo} - {nome} - R$ {preco:.2f} - {disponivel}")
+
+print("-" * 30)
+try:
+    num_quarto = int(input("Numero do quarto: ").strip())
+    if not quartos[num_quarto]["disponivel"]:
+        print(f"O quarto {num_quarto} esta ocupado")
+        sys.exit(1)
+except ValueError:
+    logging.error("Numero invalido, digite apenas digitos.")
+    sys.exit(1)
+except KeyError:
+    print(f"O quarto {num_quarto} nao existe.")
+    sys.exit(1)
+
+try:
+    dias = int(input("Quantidade de dias: ").strip())
+except ValueError:
+    logging.error("Numero invalido, digite apenas digitos.")
+    sys.exit(1)
+
+print(nome, num_quarto, dias)
