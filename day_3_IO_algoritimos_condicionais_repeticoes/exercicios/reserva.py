@@ -57,12 +57,12 @@ except FileNotFoundError:
 
 print("\nReserva Hotel Pythonico\n")
 print("-" * 30)
-nome_cliente = input("\nNome do cliente: ").strip()
-
 
 if len(ocupados) == len(quartos):
     print("Hotel Lotado.")
     sys.exit(1)
+
+nome_cliente = input("\nNome do cliente: ").strip()
 
 
 print("Lista de quartos:\n")
