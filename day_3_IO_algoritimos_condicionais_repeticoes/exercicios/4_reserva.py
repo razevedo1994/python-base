@@ -98,9 +98,11 @@ disponivel = quartos[num_quarto]["disponivel"]
 
 total = preco_quarto * dias
 
-with open("reservas.txt", "a") as file_:
-    file_.write(f"{nome_cliente},{num_quarto},{dias}\n")
-
 print(
-    f"{nome_cliente} voce escolheu o quarto {nome_quarto} e vai custar: R${total:.2f}"
+    f"Olá {nome_cliente}, você escolheu o quarto {nome_quarto} "
+    f"o valor total estimado será R$ {total:.2f}"
 )
+
+if input("Confirma? (digite y)").strip().lower() in ("y", "yes", "sim", "s"):
+    with open("reservas.txt", "a") as reserva_file:
+        reserva_file.write(f"{nome_cliente},{num_quarto},{dias}\n")
