@@ -57,7 +57,13 @@ except FileNotFoundError:
 
 print("\nReserva Hotel Pythonico\n")
 print("-" * 30)
-nome = input("\nNome do cliente: ").strip()
+nome_cliente = input("\nNome do cliente: ").strip()
+
+
+if len(ocupados) == len(quartos):
+    print("Hotel Lotado.")
+
+
 print("Lista de quartos:\n")
 for codigo, dados in quartos.items():
     nome = dados["nome"]
@@ -85,4 +91,15 @@ except ValueError:
     logging.error("Numero invalido, digite apenas digitos.")
     sys.exit(1)
 
-print(nome, num_quarto, dias)
+nome_quarto = quartos[num_quarto]["nome"]
+preco_quarto = quartos[num_quarto]["preco"]
+disponivel = quartos[num_quarto]["disponivel"]
+
+total = preco_quarto * dias
+
+with open("reservas.txt", "a") as file_:
+    file_.write(f"{nome_cliente},{num_quarto},{dias}\n")
+
+print(
+    f"{nome_cliente} voce escolheu o quarto {nome_quarto} e vai custar: R${total:.2f}"
+)
