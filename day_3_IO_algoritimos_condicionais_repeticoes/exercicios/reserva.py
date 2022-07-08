@@ -62,6 +62,7 @@ nome_cliente = input("\nNome do cliente: ").strip()
 
 if len(ocupados) == len(quartos):
     print("Hotel Lotado.")
+    sys.exit(1)
 
 
 print("Lista de quartos:\n")
