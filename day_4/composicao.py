@@ -1,8 +1,5 @@
+"""Imprime apenas os nomes iniciados com a letra B"""
 names = ["Bruno", "Joao", "Bernardo", "Barbara", "Brian"]
 
 
-def start_with_b(name):
-    return name[0].lower() == "b"
-
-
-names_with_b = list(filter(start_with_b, names))
+print(*list(filter(lambda text: text[0].lower() == "b", names)), sep="\n")
